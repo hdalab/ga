@@ -40,3 +40,10 @@ T: 5
     fmt.Println(ga.MDNF(paths))
 }
 ```
+
+### Stats
+
+`EnumerateMDNF` returns `Stats` with two useful metrics:
+
+- `NodesExpanded` — how many times DFS expanded a vertex;
+- `Pruned` — how many edges were skipped either due to revisiting a vertex or a global reachability check.
