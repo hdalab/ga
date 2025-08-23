@@ -51,7 +51,9 @@ func ParseJson(b []byte) (*Spec, error) {
 	if n <= 0 || n < maxv+1 {
 		n = maxv + 1
 	}
-	g := Graph{N: n, Edges: edges}
-	g.BuildAdj()
-	return &Spec{G: g, S: *js.S, T: *js.T}, nil
+	g := New(n)
+	for _, e := range edges {
+		g.AddEdge(e.ID, e.From, e.To)
+	}
+	return &Spec{G: *g, S: *js.S, T: *js.T}, nil
 }

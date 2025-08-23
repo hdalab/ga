@@ -41,6 +41,9 @@ T: 5
 }
 ```
 
+Edges added with `AddEdge` automatically update adjacency lists; `BuildAdj`
+can be used to rebuild them if the edge list is modified directly.
+
 ### Stats
 
 `EnumerateMDNF` returns `Stats` with two useful metrics:
