@@ -12,8 +12,6 @@ func TestStatsPrunedReachability(t *testing.T) {
 	g.AddEdge("b", 1, 2)
 	g.AddEdge("c", 2, 3)
 	g.AddEdge("x", 1, 4)
-	g.BuildAdj()
-
 	stats, err := EnumerateMDNF(context.Background(), g, 0, 3, EnumOptions{}, func(Path) bool { return true })
 	if err != nil {
 		t.Fatalf("EnumerateMDNF: %v", err)
@@ -36,8 +34,6 @@ func TestStatsPrunedVisited(t *testing.T) {
 	g.AddEdge("b", 1, 2)
 	g.AddEdge("c", 2, 3)
 	g.AddEdge("back", 2, 1)
-	g.BuildAdj()
-
 	stats, err := EnumerateMDNF(context.Background(), g, 0, 3, EnumOptions{}, func(Path) bool { return true })
 	if err != nil {
 		t.Fatalf("EnumerateMDNF: %v", err)
@@ -65,8 +61,6 @@ func TestExampleStats(t *testing.T) {
 	g.AddEdge("g", 3, 4)
 	g.AddEdge("h", 4, 5)
 	g.AddEdge("i", 2, 5)
-	g.BuildAdj()
-
 	stats, err := EnumerateMDNF(context.Background(), g, 0, 5, EnumOptions{}, func(Path) bool { return true })
 	if err != nil {
 		t.Fatalf("EnumerateMDNF: %v", err)
